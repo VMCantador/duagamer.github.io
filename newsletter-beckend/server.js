@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const config = require('./config'); // Importe suas configurações
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Conectar ao banco de dados MongoDB (certifique-se de iniciar o MongoDB)
-mongoose.connect('mongodb+srv://armvsoftware:124578@cluster0.hbgbzlc.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -53,15 +54,15 @@ app.post('/send-promotions', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'deadoralive@gmail.com',
-        pass: 'senha',
+        user: config.email,
+        pass: config.emailPassword,
       },
     });
 
     // Envio de e-mail para cada endereço na lista de e-mails
     for (const email of emails) {
       const mailOptions = {
-        from: 'deadoralive@gmail.com',
+        from: config.email,
         to: email.email,
         subject: subject,
         text: message,
@@ -78,5 +79,5 @@ app.post('/send-promotions', async (req, res) => {
 
 // Iniciar o servidor
 app.listen(PORT, () => {
-  console.log(`https://locallhost/3000/`);
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
