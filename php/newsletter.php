@@ -1,4 +1,6 @@
 <?php
+$message = ''; // Variável para armazenar a mensagem de sucesso
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
 
@@ -16,26 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param('s', $email);
 
     if ($stmt->execute()) {
-        echo 'Inscrição realizada com sucesso!';
+        $message = 'Inscrição realizada com sucesso!';
     } else {
-        echo 'Erro ao processar a inscrição.';
+        $message = 'Erro ao processar a inscrição.';
     }
 
     $stmt->close();
     $mysqli->close();
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Inscrição na Newsletter</title>
-</head>
-<body>
-    <h1>Inscrição na Newsletter</h1>
-    <form method="post">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        <input type="submit" value="Inscrever">
-    </form>
-</body>
-</html>
