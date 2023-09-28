@@ -248,41 +248,43 @@
                 <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="img/gow-bg.jpg">
                     <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
                         <div class="bg-white p-4 p-sm-5">
-                            <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="gname" placeholder="Gurdian Name">
-                                        <label for="gname">Nome</label>
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="gname" placeholder="Gurdian Name">
+                                            <label for="gname">Nome</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="gmail" placeholder="Gurdian Email">
+                                            <label for="gmail">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="cname" placeholder="Child Name">
+                                            <label for="cname">Telefone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="cage" placeholder="Child Age">
+                                            <label for="cage">Tipo de serviço</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 80px"></textarea>
+                                            <label for="message">Menssagem</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary py-3 px-5" type="submit">Enviar</button>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="gmail" placeholder="Gurdian Email">
-                                        <label for="gmail">Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="cname" placeholder="Child Name">
-                                        <label for="cname">Telefone</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="cage" placeholder="Child Age">
-                                        <label for="cage">Tipo de serviço</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 80px"></textarea>
-                                        <label for="message">Menssagem</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit">Enviar</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -397,8 +399,18 @@
                 };
     
                 // Envia os dados para o servidor
-                $.post('http://localhost:3000/contato', formData, function (data) {
-                    $('#messageText').text(data); // Exibe a resposta do servidor na página
+                $.post('http://localhost:3000/contato', formData, function (data) {                    
+                    $('#messageText').text(data.mensagem); // Exibe a resposta do servidor na página
+                    
+                       // Limpa os campos do formulário se a operação for bem-sucedida
+                if (data.mensagem === 'Mensagem enviada com sucesso!') {
+                    $('#gname').val('');
+                    $('#gmail').val('');
+                    $('#cname').val('');
+                    $('#cage').val('');
+                    $('#message').val('');
+                }
+                
                 });
             });
         });

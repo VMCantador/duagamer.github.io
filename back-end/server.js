@@ -53,9 +53,11 @@ app.post('/contato', (req, res) => {
     const query = 'INSERT INTO messages (name, email, phone, service, message) VALUES (?, ?, ?, ?, ?)';
     db.query(query, [name, email, phone, service, message], (err, result) => {
         if (err) {
+            console.error('Erro ao enviar a mensagem:', err);
             res.status(500).send('Erro ao enviar a mensagem.');
             throw err;
         }
+        console.log('Mensagem enviada com sucesso!');
         res.status(200).send('Mensagem enviada com sucesso!');
     });
 });
