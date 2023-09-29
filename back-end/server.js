@@ -48,7 +48,6 @@ app.post('/contato', (req, res) => {
     const { name, email, phone, service, message } = req.body;
 
     // Aqui você pode adicionar código para salvar a mensagem em seu banco de dados
-    // Por exemplo, você pode usar uma tabela "messages" em seu banco de dados MySQL
 
     const query = 'INSERT INTO messages (name, email, phone, service, message) VALUES (?, ?, ?, ?, ?)';
     db.query(query, [name, email, phone, service, message], (err, result) => {
