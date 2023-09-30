@@ -144,7 +144,24 @@
     }
 }
 
+.img-mod{
+    max-height: 200px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 
+.prod-mod{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-prod{
+    text-align: center;
+    align-items: center;
+    justify-content: center;  
+}
 
 .carousel-caption {
     top: 0;
