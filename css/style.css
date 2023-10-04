@@ -76,8 +76,6 @@
     font-weight: normal;
 }
 
-
-
 .navbar.sticky-top {
     top: -100px;
     transition: .5s;
@@ -157,6 +155,10 @@
     justify-content: center;
 }
 
+.product-image{
+    border-top: 2px;
+}
+
 .container-prod{
     text-align: center;
     align-items: center;
@@ -219,13 +221,9 @@
     color: var(--primary);
 }
 
-
-
 .facts {
     background: rgba(1, 10, 53, .8);
 }
-
-
 
 @media (min-width: 992px) {
     .container.quote {
@@ -277,8 +275,6 @@
     justify-content: center;
 }
 
-
-
 .service-item .service-icon {
     width: 90px;
     height: 90px;
@@ -291,8 +287,6 @@
     max-width: 60px;
     max-height: 60px;
 }
-
-
 
 .team-item .team-img::before,
 .team-item .team-img::after {
