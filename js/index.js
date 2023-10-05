@@ -1,25 +1,22 @@
-function displayProductsInCarousel() {
-    const carouselItemsContainer = document.querySelector("#products-carousel .carousel-inner");
-    const productItemTemplate = document.querySelector("#products-carousel .carousel-item .col-lg-4");
+$(document).ready(function () {
+    // Obtém a referência para a div do carrossel
+    const carouselInner = $('#productCarousel .carousel-inner');
 
+    // Itera sobre a matriz de produtos e adiciona os itens ao carrossel
     products.forEach(product => {
-        const productItem = productItemTemplate.cloneNode(true);
-        productItem.classList.add("active"); // Adiciona a classe 'active' ao primeiro item
-        productItem.style.display = "block"; // Mostra o item clonado
-
-        const productImage = productItem.querySelector(".img-mod");
-        const productName = productItem.querySelector(".h4");
-        const productDescription = productItem.querySelector(".mt-3");
-
-        productImage.src = product.image;
-        productImage.alt = product.name;
-        productName.textContent = product.name;
-        productDescription.textContent = product.description;
-
-        // Adiciona o produto à lista
-        carouselItemsContainer.appendChild(productItem);
+        const item = `
+            <div class="carousel-item">
+                <img src="${product.image}" class="d-block w-100" alt="${product.name}" style="max-height: 200px; max-width: 200px;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>${product.name}</h5>
+                    <p>${product.description}</p>
+                    <p>Preço: R$ ${product.price.toFixed(2)}</p>
+                </div>
+            </div>
+        `;
+        carouselInner.append(item);
     });
-}
 
-// Chama a função para exibir produtos no carrossel quando a página for carregada
-window.onload = displayProductsInCarousel;
+    // Ativa o primeiro item do carrossel
+    $('#productCarousel .carousel-item').first().addClass('active');
+});

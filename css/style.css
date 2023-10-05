@@ -155,6 +155,44 @@
     justify-content: center;
 }
 
+#productCarousel {
+    text-align: center;
+}
+
+/* Centraliza os itens no carrossel */
+#productCarousel .carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Remove a transparência e cores nas setas de navegação */
+#productCarousel .carousel-control-prev, #productCarousel .carousel-control-next {
+    background-color: transparent;
+    border: none;
+}
+
+/* Define a posição das setas de navegação */
+#productCarousel .carousel-control-prev {
+    left: 0;
+}
+
+#productCarousel .carousel-control-next {
+    right: 0;
+}
+
+
+.prod-carousel{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: transparent;
+}
+
+.item-carousel-prod{
+    text-align: center;
+}
+
 .product-image{
     border-top: 2px;
 }
