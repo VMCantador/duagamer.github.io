@@ -27,5 +27,12 @@ const products = [
         image: "img/ofertas/GOW-Ps2.jpg",
         price: 250.00
     },
+    {
+        id: 5,
+        name: "GTA V X-box 360",
+        description: "O melhor jogo da serie",
+        image: "img/ofertas/GTAV-360.jpg",
+        price: 250.00
+    },
     // Adicione mais produtos conforme necessário
 ];

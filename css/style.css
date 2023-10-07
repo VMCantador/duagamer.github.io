@@ -142,59 +142,17 @@
     }
 }
 
-.img-mod{
-    max-height: 200px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.prod-mod{
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-
 #productCarousel {
     text-align: center;
+    background-color: transparent !important;
 }
 
-/* Centraliza os itens no carrossel */
-#productCarousel .carousel-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#productCarousel .carousel-caption{
+    background-color: transparent !important;
 }
 
-/* Remove a transparência e cores nas setas de navegação */
-#productCarousel .carousel-control-prev, #productCarousel .carousel-control-next {
-    background-color: transparent;
-    border: none;
-}
-
-/* Define a posição das setas de navegação */
-#productCarousel .carousel-control-prev {
-    left: 0;
-}
-
-#productCarousel .carousel-control-next {
-    right: 0;
-}
-
-
-.prod-carousel{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    background-color: transparent;
-}
-
-.item-carousel-prod{
+.h2-text{
     text-align: center;
-}
-
-.product-image{
-    border-top: 2px;
 }
 
 .container-prod{
