@@ -143,6 +143,8 @@
 }
 
 #productCarousel {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     background-color: transparent !important;
 }
@@ -189,6 +191,14 @@
 }
 
 @media (max-width: 768px) {
+    /* Nova configuração carousel produtos start*/
+    #productCarousel .carousel-caption {
+        position: static;
+        width: 100%;
+        text-align: center;
+    }
+    /* Nova configuração carousel produtos end*/
+
     #header-carousel .carousel-item {
         position: relative;
         min-height: 450px;

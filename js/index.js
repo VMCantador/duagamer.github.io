@@ -1,19 +1,26 @@
 $(document).ready(function () {
+
+    function formatarMoeda(numero){
+        return new Intl.NumberFormat('pt-BR', {style: 'currency', currency:'BRL'}).format(numero);
+    }
+
     // Obtém a referência para a div do carrossel
     const carouselInner = $('#productCarousel .carousel-inner');
 
     // Itera sobre a matriz de produtos e adiciona os itens ao carrossel
     products.forEach(product => {
+
+        const precoFormatado = formatarMoeda(product.price);
+
         const item = `
-            <div class="carousel-item prod-item">
+            <div class="carousel-item">
                 <img src="${product.image}" class="" alt="${product.name}" style="max-height: 200px;">
-                <div class="carousel-caption ">
+                <div class="carousel-caption d-flex align-items-end justify-content-center ">
                     <div class="container">
-                        <div>
+                        <div class="row">
                             <div class="col-lg-7 pt-5">
                                 <h5>${product.name}</h5>
-                                <h6>${product.description}</h6>
-                                <h6>Preço: R$ ${product.price.toFixed(2)}</h6>
+                                <h6>Preço: ${precoFormatado}</h6>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,7 @@
+function formatarMoeda(numero){
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(numero);
+}
+
 function displayProducts() {
     const productList = document.getElementById("product-list");
     const productItemTemplate = document.getElementById("product-item-template");
@@ -17,7 +21,9 @@ function displayProducts() {
         productImage.alt = product.name;
         productName.textContent = product.name;
         productDescription.textContent = product.description;
-        productPrice.textContent = `$${product.price.toFixed(2)}`;
+
+        const precoFormatado = formatarMoeda(product.price);
+        productPrice.textContent = precoFormatado;
 
         // Adicionar classes para o card
         productItem.querySelector(".card").classList.remove("d-none");
